@@ -1,0 +1,57 @@
+<script type="text/javascript">
+function validateForm() {
+		var name=document.Form.name.value;
+		var address=document.Form.address.value;
+		var phonenumber=document.Form.phonenumber.value;
+		var aadharnumber=document.Form.aadharnumber.value;		
+		alert(name+" "+address+" "+phonenumber+" ");
+
+		if(validateName(name) && validateAddress(address) && validatePhonenumber(phonenumber) && validateEmail(email) && validateAadharnumber(aadharnumber)) == false) {
+		       return false;
+		 }else {
+		       var conformed= confirm("Check Once If entered data is correct or not!")
+		       if (conformed===false)
+		    	   return false;	       
+		 }
+
+	}
+	
+</script>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:forEach items="${stafflist}" var="staff">
+				<tr>
+					<td>${staff.staffId}</td>
+					<td>${staff.name}</td>
+				</tr>
+			</c:forEach>
+<div class="container">
+        <div class="table-wrapper" id="table">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Group</th>
+                    <th>Name</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                        <td><select id="type"><option selected disabled value="type">Type </option><option value="1"> 
+                 </option><option value="2">2</option><option value="3">3</option></select></td>
+                    <td><select id="group"><option selected disabled value="group">Group </option>
+                 <option value="student">student</option>
+                 <option value="teacher">teacher</option></select></td>
+                    <td><input type="text" class="form-control" name="name" id="name"></td>
+                    <td>
+                        <a class="delete" title="Delete"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i>Add New</button>
+    </div>
+</div>
